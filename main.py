@@ -4,7 +4,7 @@ MENU = {
             "water": 50,
             "coffee": 18,
         },
-        "cost": 1.5,
+        "cost": 90,
     },
     "latte": {
         "ingredients": {
@@ -12,7 +12,7 @@ MENU = {
             "milk": 150,
             "coffee": 24,
         },
-        "cost": 2.5,
+        "cost": 120,
     },
     "cappuccino": {
         "ingredients": {
@@ -20,7 +20,7 @@ MENU = {
             "milk": 100,
             "coffee": 24,
         },
-        "cost": 3.0,
+        "cost": 160,
     }
 }
 
@@ -43,11 +43,11 @@ def is_resource_sufficient(order_ingredients):
 
 def process_coins():
     """Returns the total calculated from coins inserted."""
-    print("Please insert coins.")
-    total = int(input("how many quarters?: ")) * 0.25
-    total += int(input("how many dimes?: ")) * 0.1
-    total += int(input("how many nickles?: ")) * 0.05
-    total += int(input("how many pennies?: ")) * 0.01
+    print("Please insert notes.")
+    total = int(input("how many 500's?: ")) * 500
+    total += int(input("how many 100's?: ")) * 100
+    total += int(input("how many 50's?: ")) * 50
+    total += int(input("how many 10's?: ")) * 10
     return total
 
 
@@ -55,7 +55,7 @@ def is_transaction_successful(money_received, drink_cost):
     """Return True when the payment is accepted, or False if money is insufficient."""
     if money_received >= drink_cost:
         change = round(money_received - drink_cost, 2)
-        print(f"Here is ${change} in change.")
+        print(f"Here is {change} rupees in change.")
         global profit
         profit += drink_cost
         return True
@@ -74,7 +74,7 @@ def make_coffee(drink_name, order_ingredients):
 is_on = True
 
 while is_on:
-    choice = input("​What would you like? (espresso/latte/cappuccino): ")
+    choice = input("​What would you like? \nespresso-90 rupees\nlatte-120 rupees\ncappuccino-160 rupees: ")
     if choice == "off":
         is_on = False
     elif choice == "report":
