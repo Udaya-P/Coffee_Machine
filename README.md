@@ -26,7 +26,7 @@
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/coffee_machine.git
+    git clone https://github.com/Udaya-P/Coffee_Machine.git
     ```
 2. Navigate to the project directory:
     ```bash
